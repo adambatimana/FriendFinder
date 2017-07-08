@@ -1,0 +1,29 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Dating app",
+  "main": "server.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adambatimana/FriendFinder.git"
+  },
+  "keywords": [
+    "dating",
+    "app",
+    "friend",
+    "finder"
+  ],
+  "author": "adam batimana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adambatimana/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/adambatimana/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}
