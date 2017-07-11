@@ -4,7 +4,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const friends = require("./data/friends.js");
+const friends = require("./app/data/friends.js");
 console.log(friends)
 // Sets up the Express App
 // =============================================================
