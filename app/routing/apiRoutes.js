@@ -1,37 +1,45 @@
 
-const friendData = ("../data/friends.js");
+const friendData = require("../data/friends.js");
 
 // ===========================================
 // ================  API ROUTES  =============
 // ===========================================
 
 module.exports = function(app){
+  //array for input information
+  let friendAddedName = []
 
+  //array for images info
+  let friendAddedImage = []
 
 app.get("/api/friends", function(req,res){
       res.json(friendData)
 })
 
 app.get("/api/github", function(req,res){
-      res.sendFile("https://adambatimana.github.io/FriendFinder/");
+      res.redirect("https://github.com/adambatimana/FriendFinder/");
 })
 
     // ====================================
     //            POST REQUEST
     // ====================================
 
-    //Recieve data from POST on SURVEY HTML PAGE and Read as JSON
     app.post("/api/friends", function(req, res) {
         let addFriend = req.body;
-            friendData.push(addFriend);
-            res.json(addFriend)
+        friendAddedName = [];
+        console.log(addFriend)
+        friendData.push(addFriend);
+        friendAddedName.push(friendData.name);
+        res.json(addFriend);
+
+
+          //select name from array to push to MODAL ON FRONT END
+          for (var i = 0; i < friendData.length; i++) {
+            console.log(friendData[i].name);
+          }
     });
 
-    //array for input information
-    let friendAddedName = []
 
-    //array for images info
-    let friendAddedImage = []
 
     // ====================================
     //            LOGIC comparison
