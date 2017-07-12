@@ -4,7 +4,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const friends = require("./app/data/friends.js");
+const friendFind = require("./app/data/friends.js");
 console.log(friends)
 // Sets up the Express App
 // =============================================================
@@ -21,11 +21,30 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 
+// let friendsInput = friendFind.friends
+
+
+//array for input information
+let friendAddedName = []
+
+//array for images info
+let friendAddedImage = []
+
+// ====================================
+//            LOGIC comparison
+// ====================================
+
+
+
 
 
 // ===========================================
 // =========  COMPARE SCORES  ================
 // ===========================================
+
+//pull information from freinds to compare scores then push match to modal on front endpoint
+
+
 
 
 
