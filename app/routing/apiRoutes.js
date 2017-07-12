@@ -1,52 +1,30 @@
+
+const friendData = ("../data/friends.js");
+
 // ===========================================
 // ================  API ROUTES  =============
 // ===========================================
-function getAPI(){
+
+module.exports = function(app){
 
 
-app.get("/api/:friends?", function(req,res){
-  switch(req.params){
-    case '/friends':
-      res.json(tables)
-    break
-    case '/github':
-        res.sendFile("https://adambatimana.github.io/FriendFinder/");
-    break
-    default:
-        res.sendFile(path.join(__dirname, "404.html"));
-    break
-  }
+app.get("/api/friends", function(req,res){
+      res.json(friendData)
 })
-// ====================================
-//            POST REQUEST
-// ====================================
 
-app.post("/api/friends", function(req, res) {
+app.get("/api/github", function(req,res){
+      res.sendFile("https://adambatimana.github.io/FriendFinder/");
+})
 
-  let newTable = req.body;
-  console.log(newTable);
-  // ====================================
-  //            LOGIC
-  // ====================================
-  if (tables.length < 5) {
-      tables.push(newTable);
-  }else{
-      waitList.push(newTable)
-      console.log(waitList);
-  }
-  res.json(newTable);
-});
+    // ====================================
+    //            POST REQUEST
+    // ====================================
 
-app.post("/api/friends", function(req, res) {
+    //Recieve data from POST on SURVEY HTML PAGE and Read as JSON
+    app.post("/api/friends", function(req, res) {
+        let addFriend = req.body;
+            friendData.push(addFriend);
+            res.json(addFriend)
+    });
 
-  let addToFriends = req.body;
-
-  console.log(addToFriends);
-
-  //friendsARRAY.push(addToWait);
-
-  res.json();
-
-});
-}
-module.exports = getAPI;
+}//end export module

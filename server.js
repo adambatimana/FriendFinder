@@ -1,4 +1,4 @@
-// ===========================================
+cd// ===========================================
 // ============== DEPENDENCIES  ============
 // ===========================================
 const express = require("express");
@@ -22,6 +22,13 @@ app.use(bodyParser.json({
 }));
 
 // let friendsInput = friendFind.friends
+
+// ====================================
+//            Page Router
+// ====================================
+require.("./app/routing/apiRoutes.js")(app);
+require.("./app/routing/htmlRoutes.js")(app);
+
 
 
 //array for input information
