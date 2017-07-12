@@ -27,4 +27,33 @@ app.get("/api/github", function(req,res){
             res.json(addFriend)
     });
 
+    //array for input information
+    let friendAddedName = []
+
+    //array for images info
+    let friendAddedImage = []
+
+    // ====================================
+    //            LOGIC comparison
+    // ====================================
+
+
+
+
+
+    // ===========================================
+    // =========  COMPARE SCORES  ================
+    // ===========================================
+
+    //pull information from freinds to compare scores then push match to modal on front endpoint
+
+
+
+
+
+
+
+
+
+
 }//end export module

@@ -1,11 +1,9 @@
-cd// ===========================================
+// ===========================================
 // ============== DEPENDENCIES  ============
 // ===========================================
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
-const friendFind = require("./app/data/friends.js");
-console.log(friends)
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -21,42 +19,11 @@ app.use(bodyParser.json({
   type: "application/vnd.api+json"
 }));
 
-// let friendsInput = friendFind.friends
-
 // ====================================
 //            Page Router
 // ====================================
-require.("./app/routing/apiRoutes.js")(app);
-require.("./app/routing/htmlRoutes.js")(app);
-
-
-
-//array for input information
-let friendAddedName = []
-
-//array for images info
-let friendAddedImage = []
-
-// ====================================
-//            LOGIC comparison
-// ====================================
-
-
-
-
-
-// ===========================================
-// =========  COMPARE SCORES  ================
-// ===========================================
-
-//pull information from freinds to compare scores then push match to modal on front endpoint
-
-
-
-
-
-
-
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
 
 // Starts the server to begin listening

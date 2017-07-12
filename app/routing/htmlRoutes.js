@@ -2,22 +2,23 @@
 // ================  HTML ROUTES  ============
 // ===========================================
 
-getHTML(){
+const path = require("path");
 
-app.get('/:endpoint?', function (req, res) {
-  switch (req.params.endpoint) {
-    case '/':
-    case undefined:
-      res.sendFile(path.join(__dirname, "home.html"));
-      break
-    case 'survey':
-      res.sendFile(path.join(__dirname, "survey.html"));
-      break
-    
-    default:
-      res.sendFile(path.join(__dirname, "404.html"));
-      break
-  }
-});
-}
-module.exports = getHTML;
+module.exports = function(app){
+
+      app.get('/:endpoint?', function (req, res) {
+              switch (req.params.endpoint) {
+                case '/':
+                case undefined:
+                  res.sendFile(path.join(__dirname, "/../public/home.html"));
+                  break
+                case 'survey':
+                  res.sendFile(path.join(__dirname, "/../public/survey.html"));
+                  break
+                default:
+                  res.sendFile(path.join(__dirname, "/../public/404.html"));
+                  break
+        }
+      }); //end app.get
+
+}//end module export
