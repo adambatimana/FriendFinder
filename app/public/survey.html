@@ -231,7 +231,7 @@
                     <option value = '3'> 3</option>
                     <option value = '4'> 4 </option>
                     <option value = '5'> 5 (Strongly Agree)</option>
-                  </select>
+              </select>
             </div>
 
           </div>
@@ -260,7 +260,7 @@
     <script type="text/javascript">
     $(".submit").on("click", function(event) {
           event.preventDefault();
-
+          let scoreInt =[];
           let scoreArray =
                   [
                     $("#question1 option:selected").val(),
@@ -274,6 +274,8 @@
                     $("#question9 option:selected").val(),
                     $("#question10 option:selected").val()
                   ]
+
+
           // Here we grab the form elements
                 let friendMatchInfo = {
                   name: $("#nameInput").val().trim(),
@@ -296,10 +298,10 @@
                       alert("Sorry you have no friends");
                     }
 
-                    // Clear the form when submitting
+                    // // Clear the form when submitting
                     // $("#nameInput").val("");
                     // $("#photoLinkInput").val("");
-                    // scoreArray.val("");
+                    // $(".form-control option").val("");
                   });
 
           });//end submitbutton

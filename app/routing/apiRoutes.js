@@ -1,16 +1,17 @@
 
 const friendData = require("../data/friends.js");
-
+const friendMatch  = require("../data/match.js")
 // ===========================================
 // ================  API ROUTES  =============
 // ===========================================
 
 module.exports = function(app){
-  //array for input information
-  let friendAddedName = []
+
 
   //array for images info
   let friendAddedImage = []
+
+  let scoreInt = [];
 
 app.get("/api/friends", function(req,res){
       res.json(friendData)
@@ -26,17 +27,42 @@ app.get("/api/github", function(req,res){
 
     app.post("/api/friends", function(req, res) {
         let addFriend = req.body;
-        friendAddedName = [];
-        console.log(addFriend)
-        friendData.push(addFriend);
-        friendAddedName.push(friendData.name);
-        res.json(addFriend);
+        //array for input information
+        let friendAddedName = [];
+
+        //collect and turn scores into numbers
+         for (let i = 0; i < addFriend.scores.length; i++) {
+             addFriend.scores[i] = parseInt(addFriend.scores[i])
+             scoreInt = addFriend.scores[i];
+             console.log(scoreInt)
+         }
+
+         //push information from .get to FRIENDS
+         friendData.push(addFriend);
+         res.json(addFriend);
+         console.log(addFriend)
+
+        // //name selection
+        // friendAddedName.push(friendData.name);
+        // console.log(friendAddedName);
+        
+        // all scores
+        const matchScore = friendMatch.map(matchMe => matchMe.scores )
+        console.log(matchScore)
+
+        //firstMatch score
+        const personOne = friendMatch[0].scores;
+        console.log(personOne)
+        //if person1 == person2 , match
 
 
-          //select name from array to push to MODAL ON FRONT END
-          for (var i = 0; i < friendData.length; i++) {
-            console.log(friendData[i].name);
-          }
+
+//{Pseudo Code for finding match}
+//In  this example i = number of points in common
+        //if person1Score i > 5 = match
+        //else == no match
+
+
     });
 
 
