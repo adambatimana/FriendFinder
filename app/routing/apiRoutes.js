@@ -58,42 +58,47 @@ app.get("/api/github", function(req,res){
             //pull information from freinds to compare scores then push match to modal on front endpoint
 
             const matchOne = friendMatch[0].scores.reduce((a, b) => a + b, 0);
-            console.log(matchOne)
+            console.log(matchOne + " Friend One score")
 
             const matchTwo = friendMatch[1].scores.reduce((a, b) => a + b, 0);
-            console.log(matchTwo)
+            console.log(matchTwo + " Friend Two score")
 
             const matchThree = friendMatch[2].scores.reduce((a, b) => a + b, 0);
-            console.log(matchThree)
+            console.log(matchThree + " Friend Three score")
 
             const matchFour = friendMatch[3].scores.reduce((a, b) => a + b, 0);
-            console.log(matchFour)
+            console.log(matchFour + " Friend Four score")
 
             const userTotal = friendData[0].scores.reduce((a,b) => a +b, 0);
-            console.log(userTotal);
+            console.log(userTotal+ " User score");
 
 
           function checkMatch(friend,user){
 
             const closeMatch = friend - user;
-            console.log(closeMatch)
+            console.log("Match difference " + closeMatch)
 
-            if (friend === user)
-                {
-                   return true
-                }
-            else if (closeMatch > 0 && closeMatch < 2)
-                {
-                  return true
-                }
-            else
-                {
-                  return false
-                }
-          }//end checkMatch function
+              if (friend === user)
+                  {
+                     return true
+                  }
+              else if (closeMatch > 0 && closeMatch < 2)
+                  {
+                    return true
+                  }
+              else
+                  {
+                    return false
+                  }
+            }//end checkMatch function
 
           ;
+          //log if match is true or false
+          console.log(checkMatch(matchOne,userTotal));
           console.log(checkMatch(matchTwo,userTotal));
+          console.log(checkMatch(matchThree,userTotal));
+          console.log(checkMatch(matchFour,userTotal));
+
 
     });
 }//end export module
