@@ -99,7 +99,7 @@ app.get("/api/github", function(req,res){
           console.log(checkMatch(matchThree,userTotal));
           console.log(checkMatch(matchFour,userTotal));
 
-
+          // need code to send name and picture link to MODAL to front end, onclick function so the match can pop up in the browser
     });
 }//end export module
 
